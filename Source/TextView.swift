@@ -1,6 +1,5 @@
 //
 //  TextView.swift
-//  Convene
 //
 //  Created by Brendan Conron on 12/29/14.
 //  Copyright (c) 2014 Brendan Conron. All rights reserved.
