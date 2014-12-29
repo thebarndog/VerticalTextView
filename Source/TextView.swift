@@ -46,7 +46,7 @@ class TextView: UITextView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let size = self.contentSize //force calculation
+        let size = self.contentSize //forces didSet to be called
         self.contentSize = size
     }
     
