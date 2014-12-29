@@ -15,6 +15,7 @@ class TextView: UITextView {
     
     var verticalAlignment: VerticalAlignment = .Middle
     
+    //override contentSize property and observe using didSet
     override var contentSize: CGSize {
         didSet {
             let textView = self
@@ -23,7 +24,7 @@ class TextView: UITextView {
             var topCorrect: CGFloat = 0.0
             switch(self.verticalAlignment){
             case .Top:
-                textView.contentOffset = CGPointZero
+                textView.contentOffset = CGPointZero //set content offset to top
             case .Middle:
                 topCorrect = (height - contentHeight * textView.zoomScale)/2.0
                 topCorrect = topCorrect < 0 ? 0 : topCorrect
@@ -33,9 +34,9 @@ class TextView: UITextView {
                 topCorrect = topCorrect < 0 ? 0 : topCorrect
                 textView.contentOffset = CGPoint(x: 0, y: -topCorrect)
             }
-            if contentHeight >= height {
-                topCorrect = contentHeight - height
-                topCorrect = topCorrect < 0 ? 0 : topCorrect
+            if contentHeight >= height { //if the contentSize is greater than the height
+                topCorrect = contentHeight - height //set the contentOffset to be the
+                topCorrect = topCorrect < 0 ? 0 : topCorrect //contentHeight - height of textView
                 textView.contentOffset = CGPoint(x: 0, y: topCorrect)
             }
         }
