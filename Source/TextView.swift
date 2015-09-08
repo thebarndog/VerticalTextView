@@ -9,7 +9,7 @@ import UIKit
 
 class TextView: UITextView {
     
-     enum VerticalAlignment: Int {
+    enum VerticalAlignment: Int {
         case Top = 0, Middle, Bottom
     }
     
@@ -20,7 +20,7 @@ class TextView: UITextView {
         didSet {
             let textView = self
             let height = textView.bounds.size.height
-            let contentHeight = textView.sizeThatFits(CGSize(width: textView.frame.size.width, height: CGFloat(FLT_MAX))).height
+            let contentHeight:CGFloat = contentSize.height
             var topCorrect: CGFloat = 0.0
             switch(self.verticalAlignment){
             case .Top:
