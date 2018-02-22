@@ -10,30 +10,20 @@ import UIKit
 
 class ViewController: UIViewController, UITextViewDelegate {
 
-    var textView : VerticalTextView!
+    var textView: VerticalTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "VerticalTextView"
         
-        self.title = "VerticalTextView"
+        textView = VerticalTextView(frame: view.bounds)
+        textView.delegate = self
+        textView.font = UIFont.systemFont(ofSize: 14)
+        textView.textColor = UIColor.black
+        textView.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum massa eu pulvinar fermentum."
+        textView.verticalAlignment = .middle
         
-        self.textView = VerticalTextView(frame: self.view.bounds)
-        self.textView.delegate = self
-        self.textView.font = UIFont.systemFontOfSize(14)
-        self.textView.textColor = UIColor.blackColor()
-        
-        self.textView.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum massa eu pulvinar fermentum."
-        
-        self.textView.verticalAlignment = .Middle
-        
-        self.view.addSubview(self.textView)
-        // Do any additional setup after loading the view, typically from a nib.
+        view.addSubview(textView)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 
